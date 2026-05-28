@@ -47,7 +47,6 @@ struct SettingsView: View {
     private var about: some View {
         VStack(spacing: 10) {
             SettingsRow(title: locale.text("settings.version"), value: AppConstants.versionString, systemImage: "number")
-            SettingsRow(title: locale.text("settings.bundle"), value: AppConstants.bundleIdentifier, systemImage: "app.badge")
             SettingsRow(title: locale.text("settings.local"), value: locale.text("settings.local.value"), systemImage: "iphone")
         }
     }
