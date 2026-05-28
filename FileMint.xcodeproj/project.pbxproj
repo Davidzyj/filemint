@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		100000000000000000000001 /* FileMintApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000101 /* FileMintApp.swift */; };
+		100000000000000000000002 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000102 /* AppConstants.swift */; };
+		100000000000000000000003 /* ProcessingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000103 /* ProcessingModels.swift */; };
+		100000000000000000000004 /* AppLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000104 /* AppLocale.swift */; };
+		100000000000000000000005 /* FileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000105 /* FileStore.swift */; };
+		100000000000000000000006 /* ZipWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000106 /* ZipWriter.swift */; };
+		100000000000000000000007 /* FileProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000107 /* FileProcessor.swift */; };
+		100000000000000000000008 /* SharedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000108 /* SharedViews.swift */; };
+		100000000000000000000009 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000109 /* ContentView.swift */; };
+		10000000000000000000000A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10000000000000000000010A /* HomeView.swift */; };
+		10000000000000000000000B /* ToolViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10000000000000000000010B /* ToolViews.swift */; };
+		10000000000000000000000C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10000000000000000000010C /* SettingsView.swift */; };
+		10000000000000000000000D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10000000000000000000010D /* Assets.xcassets */; };
+		10000000000000000000000E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10000000000000000000010E /* InfoPlist.strings */; };
+		10000000000000000000000F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 100000000000000000000111 /* Localizable.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		100000000000000000000020 /* FileMint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileMint.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		100000000000000000000101 /* FileMintApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileMintApp.swift; sourceTree = "<group>"; };
+		100000000000000000000102 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		100000000000000000000103 /* ProcessingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingModels.swift; sourceTree = "<group>"; };
+		100000000000000000000104 /* AppLocale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocale.swift; sourceTree = "<group>"; };
+		100000000000000000000105 /* FileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStore.swift; sourceTree = "<group>"; };
+		100000000000000000000106 /* ZipWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipWriter.swift; sourceTree = "<group>"; };
+		100000000000000000000107 /* FileProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProcessor.swift; sourceTree = "<group>"; };
+		100000000000000000000108 /* SharedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViews.swift; sourceTree = "<group>"; };
+		100000000000000000000109 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		10000000000000000000010A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		10000000000000000000010B /* ToolViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolViews.swift; sourceTree = "<group>"; };
+		10000000000000000000010C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		10000000000000000000010D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		10000000000000000000010F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		100000000000000000000110 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		100000000000000000000112 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		100000000000000000000113 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		100000000000000000000114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		100000000000000000000030 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		100000000000000000000040 = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000041 /* FileMint */,
+				100000000000000000000042 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		100000000000000000000041 /* FileMint */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000101 /* FileMintApp.swift */,
+				100000000000000000000043 /* Models */,
+				100000000000000000000044 /* Services */,
+				100000000000000000000045 /* Views */,
+				10000000000000000000010D /* Assets.xcassets */,
+				10000000000000000000010E /* InfoPlist.strings */,
+				100000000000000000000111 /* Localizable.strings */,
+				100000000000000000000114 /* Info.plist */,
+			);
+			path = FileMint;
+			sourceTree = "<group>";
+		};
+		100000000000000000000042 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000020 /* FileMint.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		100000000000000000000043 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000102 /* AppConstants.swift */,
+				100000000000000000000103 /* ProcessingModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		100000000000000000000044 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000104 /* AppLocale.swift */,
+				100000000000000000000105 /* FileStore.swift */,
+				100000000000000000000106 /* ZipWriter.swift */,
+				100000000000000000000107 /* FileProcessor.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		100000000000000000000045 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				100000000000000000000108 /* SharedViews.swift */,
+				100000000000000000000109 /* ContentView.swift */,
+				10000000000000000000010A /* HomeView.swift */,
+				10000000000000000000010B /* ToolViews.swift */,
+				10000000000000000000010C /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		100000000000000000000050 /* FileMint */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 100000000000000000000060 /* Build configuration list for PBXNativeTarget "FileMint" */;
+			buildPhases = (
+				100000000000000000000031 /* Sources */,
+				100000000000000000000030 /* Frameworks */,
+				100000000000000000000032 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FileMint;
+			productName = FileMint;
+			productReference = 100000000000000000000020 /* FileMint.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		100000000000000000000070 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					100000000000000000000050 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+				};
+			};
+			buildConfigurationList = 100000000000000000000061 /* Build configuration list for PBXProject "FileMint" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				"zh-Hans",
+			);
+			mainGroup = 100000000000000000000040;
+			productRefGroup = 100000000000000000000042 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				100000000000000000000050 /* FileMint */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		100000000000000000000032 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10000000000000000000000D /* Assets.xcassets in Resources */,
+				10000000000000000000000E /* InfoPlist.strings in Resources */,
+				10000000000000000000000F /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		100000000000000000000031 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				100000000000000000000001 /* FileMintApp.swift in Sources */,
+				100000000000000000000002 /* AppConstants.swift in Sources */,
+				100000000000000000000003 /* ProcessingModels.swift in Sources */,
+				100000000000000000000004 /* AppLocale.swift in Sources */,
+				100000000000000000000005 /* FileStore.swift in Sources */,
+				100000000000000000000006 /* ZipWriter.swift in Sources */,
+				100000000000000000000007 /* FileProcessor.swift in Sources */,
+				100000000000000000000008 /* SharedViews.swift in Sources */,
+				100000000000000000000009 /* ContentView.swift in Sources */,
+				10000000000000000000000A /* HomeView.swift in Sources */,
+				10000000000000000000000B /* ToolViews.swift in Sources */,
+				10000000000000000000000C /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		10000000000000000000010E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10000000000000000000010F /* en */,
+				100000000000000000000110 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		100000000000000000000111 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				100000000000000000000112 /* en */,
+				100000000000000000000113 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		100000000000000000000080 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		100000000000000000000081 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		100000000000000000000082 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FileMint/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhouyajie.filemint;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		100000000000000000000083 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FileMint/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhouyajie.filemint;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		100000000000000000000060 /* Build configuration list for PBXNativeTarget "FileMint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				100000000000000000000082 /* Debug */,
+				100000000000000000000083 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		100000000000000000000061 /* Build configuration list for PBXProject "FileMint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				100000000000000000000080 /* Debug */,
+				100000000000000000000081 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 100000000000000000000070 /* Project object */;
+}
