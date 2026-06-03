@@ -90,27 +90,19 @@ Expected public URLs:
 
 Pages are published from `site/` through `.github/workflows/pages.yml`.
 
-Repository creation status:
+Repository and Pages status:
 
-- Local git repository is initialized.
-- Initial commit: `fe1f7de`
-- GitHub API repository creation was attempted on 2026-05-28 but failed with `403 Resource not accessible by personal access token`.
-- The owner must create the GitHub repository manually or provide a token with repo creation permissions.
-
-After the remote repository exists, run:
-
-```sh
-git remote add origin https://github.com/Davidzyj/filemint.git
-git push -u origin main
-```
-
-Then enable GitHub Pages with source "GitHub Actions" if it is not already enabled.
+- Repository: `https://github.com/Davidzyj/filemint`
+- Remote: `origin https://github.com/Davidzyj/filemint.git`
+- Branch: `main`
+- Pages mode: GitHub Actions workflow
+- Pages deploy workflow: completed successfully on 2026-06-03
+- Public site: `https://davidzyj.github.io/filemint/`
 
 ## Remaining Owner Actions
 
 - Confirm Apple Developer team and signing identity.
 - Register Bundle ID in Apple Developer if needed.
-- Create GitHub repository `Davidzyj/filemint`, push `main`, and enable Pages with GitHub Actions.
 - Create App Store Connect app record.
 - Fill legal/copyright/contact phone details.
 - Archive and upload the signed build.
