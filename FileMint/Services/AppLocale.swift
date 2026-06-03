@@ -21,6 +21,8 @@ final class AppLocale: ObservableObject {
     init(locale: Locale = .current) {
         if let forced = ScreenshotConfig.forcedLanguageCode {
             language = forced.hasPrefix("zh") ? .simplifiedChinese : .english
+        } else if let preferredIdentifier = Locale.preferredLanguages.first {
+            language = Self.language(forPreferredIdentifier: preferredIdentifier)
         } else if locale.region?.identifier.uppercased() == "CN" {
             language = .simplifiedChinese
         } else {
@@ -89,6 +91,24 @@ final class AppLocale: ObservableObject {
 }
 
 private extension AppLocale {
+    static func language(forPreferredIdentifier identifier: String) -> AppLanguage {
+        let locale = Locale(identifier: identifier)
+
+        guard locale.language.languageCode?.identifier == "zh" else {
+            return .english
+        }
+
+        if locale.language.script?.identifier == "Hans" {
+            return .simplifiedChinese
+        }
+
+        if locale.region?.identifier.uppercased() == "CN" {
+            return .simplifiedChinese
+        }
+
+        return .english
+    }
+
     static let english: [String: String] = [
         "app.title": "FileMint",
         "app.subtitle": "Local file compression and conversion",
