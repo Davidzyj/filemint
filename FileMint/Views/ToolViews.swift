@@ -6,11 +6,16 @@ struct PDFCompressView: View {
     @ObservedObject var store: FileStore
 
     @State private var selectedURL: URL?
+    @State private var selectedByteSize: Int64?
     @State private var compressionLevel: PDFCompressionLevel = .balanced
+    @State private var previewSummary: ProcessingSummary?
+    @State private var previewToken = UUID()
     @State private var result: ProcessedFile?
     @State private var errorMessage: String?
     @State private var isImporterPresented = false
     @State private var isProcessing = false
+    @State private var isPreviewing = false
+    @State private var isPreviewPresented = false
 
     var body: some View {
         ToolContainerView(
@@ -19,7 +24,7 @@ struct PDFCompressView: View {
             tool: .pdfCompress
         ) {
             VStack(alignment: .leading, spacing: 16) {
-                SelectedFilePanel(name: selectedPDFName)
+                SelectedPDFPanel(name: selectedPDFName, size: selectedPDFSizeText)
 
                 Picker(locale.text("compression.title"), selection: $compressionLevel) {
                     ForEach(PDFCompressionLevel.allCases) { level in
@@ -27,6 +32,11 @@ struct PDFCompressView: View {
                     }
                 }
                 .pickerStyle(.segmented)
+                .onChange(of: compressionLevel) { _, _ in
+                    updatePreview()
+                }
+
+                previewPanel
 
                 SecondaryActionButton(title: locale.text("button.choosePDF"), systemImage: "doc.badge.plus") {
                     isImporterPresented = true
@@ -51,9 +61,17 @@ struct PDFCompressView: View {
             switch response {
             case .success(let url):
                 selectedURL = url
+                selectedByteSize = FileProcessor.byteSize(of: url)
+                result = nil
+                updatePreview()
                 errorMessage = nil
             case .failure(let error):
                 errorMessage = error.localizedDescription
+            }
+        }
+        .sheet(isPresented: $isPreviewPresented) {
+            if let previewURL = previewSummary?.outputURL {
+                QuickLookPreview(url: previewURL)
             }
         }
         .accessibilityIdentifier("screen.compress")
@@ -64,6 +82,86 @@ struct PDFCompressView: View {
             return locale.text("screenshot.sample.pdf")
         }
         return selectedURL?.lastPathComponent ?? locale.text("status.ready")
+    }
+
+    private var selectedPDFSizeText: String {
+        if ScreenshotConfig.isEnabled {
+            return "3.5 MB"
+        }
+        guard let selectedByteSize else {
+            return "-"
+        }
+        return locale.formattedBytes(selectedByteSize)
+    }
+
+    @ViewBuilder
+    private var previewPanel: some View {
+        if ScreenshotConfig.isEnabled {
+            PreviewSizePanel(
+                isLoading: false,
+                sizeText: "1.8 MB",
+                statusText: locale.text("status.previewReady"),
+                canPreview: true
+            ) {}
+        } else if selectedURL != nil {
+            PreviewSizePanel(
+                isLoading: isPreviewing,
+                sizeText: previewSummary.map { locale.formattedBytes($0.byteSize) } ?? "-",
+                statusText: isPreviewing ? locale.text("status.previewUpdating") : locale.text("status.previewReady"),
+                canPreview: previewSummary != nil && !isPreviewing
+            ) {
+                isPreviewPresented = true
+            }
+        }
+    }
+
+    private func updatePreview() {
+        guard let selectedURL else {
+            previewSummary = nil
+            selectedByteSize = nil
+            return
+        }
+
+        let token = UUID()
+        previewToken = token
+        previewSummary = nil
+        isPreviewing = true
+        errorMessage = nil
+
+        Task { @MainActor in
+            do {
+                let outputURL = previewURL(for: selectedURL, level: compressionLevel)
+                try FileManager.default.createDirectory(
+                    at: outputURL.deletingLastPathComponent(),
+                    withIntermediateDirectories: true
+                )
+                try? FileManager.default.removeItem(at: outputURL)
+                let summary = try FileProcessor.compressPDF(inputURL: selectedURL, level: compressionLevel, outputURL: outputURL)
+                guard previewToken == token else {
+                    try? FileManager.default.removeItem(at: outputURL)
+                    return
+                }
+                previewSummary = summary
+            } catch {
+                guard previewToken == token else {
+                    return
+                }
+                previewSummary = nil
+                errorMessage = error.localizedDescription
+            }
+
+            if previewToken == token {
+                isPreviewing = false
+            }
+        }
+    }
+
+    private func previewURL(for inputURL: URL, level: PDFCompressionLevel) -> URL {
+        let name = inputURL.deletingPathExtension().lastPathComponent
+        let fileName = "\(name)-\(level.suffix)-preview.pdf"
+        return FileManager.default.temporaryDirectory
+            .appendingPathComponent("FileMintPreviews", isDirectory: true)
+            .appendingPathComponent(fileName)
     }
 
     private func process() {
@@ -91,6 +189,79 @@ struct PDFCompressView: View {
                 errorMessage = error.localizedDescription
             }
         }
+    }
+}
+
+private struct SelectedPDFPanel: View {
+    @EnvironmentObject private var locale: AppLocale
+    let name: String
+    let size: String
+
+    var body: some View {
+        HStack(alignment: .top, spacing: 12) {
+            Image(systemName: "checkmark.seal.fill")
+                .foregroundStyle(FileMintTheme.mint)
+                .frame(width: 36, height: 36)
+                .background(FileMintTheme.mint.opacity(0.12), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+
+            VStack(alignment: .leading, spacing: 8) {
+                Text(locale.text("status.selected"))
+                    .font(.caption.weight(.medium))
+                    .foregroundStyle(.secondary)
+                Text(name)
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(FileMintTheme.ink)
+                    .fixedSize(horizontal: false, vertical: true)
+                InfoPill(label: locale.text("status.originalSize"), value: size, tint: FileMintTheme.blue)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .padding(14)
+        .background(FileMintTheme.surface, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+    }
+}
+
+private struct PreviewSizePanel: View {
+    @EnvironmentObject private var locale: AppLocale
+    let isLoading: Bool
+    let sizeText: String
+    let statusText: String
+    let canPreview: Bool
+    let previewAction: () -> Void
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 10) {
+                Image(systemName: "eye.fill")
+                    .foregroundStyle(FileMintTheme.mint)
+                    .frame(width: 34, height: 34)
+                    .background(FileMintTheme.mint.opacity(0.12), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(statusText)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(FileMintTheme.ink)
+                    Text(locale.text("status.previewSize"))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer(minLength: 0)
+                if isLoading {
+                    ProgressView()
+                } else {
+                    Text(sizeText)
+                        .font(.subheadline.weight(.bold))
+                        .foregroundStyle(FileMintTheme.ink)
+                }
+            }
+
+            SecondaryActionButton(title: locale.text("button.preview"), systemImage: "doc.text.magnifyingglass") {
+                previewAction()
+            }
+            .disabled(!canPreview)
+            .opacity(canPreview ? 1 : 0.55)
+        }
+        .padding(14)
+        .background(FileMintTheme.surface, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
     }
 }
 

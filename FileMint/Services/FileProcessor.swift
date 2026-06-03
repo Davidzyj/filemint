@@ -42,6 +42,12 @@ enum FileProcessingError: LocalizedError {
 }
 
 enum FileProcessor {
+    static func byteSize(of url: URL) -> Int64 {
+        (try? access(url) { securedURL in
+            fileSize(securedURL)
+        }) ?? fileSize(url)
+    }
+
     static func compressPDF(inputURL: URL, level: PDFCompressionLevel, outputURL: URL) throws -> ProcessingSummary {
         try access(inputURL) { securedURL in
             guard let document = PDFDocument(url: securedURL) else {
