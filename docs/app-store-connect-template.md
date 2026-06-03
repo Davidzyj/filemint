@@ -5,7 +5,7 @@ Last updated: 2026-05-28
 ## App Record
 
 - App name: FileMint
-- Simplified Chinese listing name: 文件薄荷
+- Simplified Chinese listing name: 文件转换器
 - Bundle ID: `com.zhouyajie.filemint`
 - SKU: `filemint-ios-001`
 - Version: `1.0.0`
@@ -58,7 +58,7 @@ Leave blank for MVP, or use `https://davidzyj.github.io/filemint/`
 ## Simplified Chinese Listing
 
 Name:
-文件薄荷
+文件转换器
 
 Subtitle:
 本地 PDF 与图片工具
@@ -67,9 +67,9 @@ Promotional Text:
 在 iPhone 本地压缩 PDF、图片生成 PDF、导出 PDF 页面，并转换常见图片格式。
 
 Description:
-文件薄荷是一款轻量的 iPhone 文件处理工具，适合快速完成日常文档整理。你可以压缩 PDF、将多张图片合成为 PDF、把 PDF 页面导出为图片 ZIP，也可以在 JPG、PNG、HEIC 格式之间转换图片。
+文件转换器是一款轻量的 iPhone 文件处理工具，适合快速完成日常文档整理。你可以压缩 PDF、将多张图片合成为 PDF、把 PDF 页面导出为图片 ZIP，也可以在 JPG、PNG、HEIC 格式之间转换图片。
 
-你选择的文件会在设备本地处理并保存。文件薄荷不需要账号、不连接后端、不使用统计服务或追踪 SDK。
+你选择的文件会在设备本地处理并保存。文件转换器不需要账号、不连接后端、不使用统计服务或追踪 SDK。
 
 主要功能：
 - 压缩 PDF 文件

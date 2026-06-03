@@ -4,7 +4,7 @@ Last updated: 2026-05-28
 
 ## Current Product
 
-FileMint / 文件薄荷 is an iPhone-only SwiftUI app for local file processing.
+FileMint / 文件转换器 is an iPhone-only SwiftUI app for local file processing.
 
 - Bundle ID: `com.zhouyajie.filemint`
 - Version: `1.0.0`

@@ -3,7 +3,7 @@
 ## Product Name
 
 - English: FileMint
-- Simplified Chinese: 文件薄荷
+- Simplified Chinese: 文件转换器
 - Bundle ID: `com.zhouyajie.filemint`
 
 ## Positioning
@@ -53,4 +53,3 @@ FileMint is a local-first iPhone file utility for everyday document cleanup: com
 - Reorder/delete PDF pages.
 - Password protect PDF.
 - More file formats where iOS provides reliable local APIs.
-

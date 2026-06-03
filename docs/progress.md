@@ -6,7 +6,7 @@
 
 - Status: Complete
 - Created product direction and MVP plan.
-- Selected product name: FileMint / 文件薄荷.
+- Selected product name: FileMint / 文件转换器.
 - Selected bundle ID: `com.zhouyajie.filemint`.
 - Confirmed workspace started empty.
 - Created the native SwiftUI Xcode project skeleton.

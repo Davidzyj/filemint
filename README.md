@@ -15,9 +15,8 @@ FileMint is an iPhone-only SwiftUI app for local file compression and format con
 ## Project
 
 - App name: FileMint
-- Chinese display name: 文件薄荷
+- Chinese display name: 文件转换器
 - Bundle ID: `com.zhouyajie.filemint`
 - Version: `1.0.0`
 - Platform: iPhone only
 - Backend/network: none. Web links open only after a user action.
-

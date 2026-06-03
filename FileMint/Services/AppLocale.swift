@@ -169,7 +169,7 @@ private extension AppLocale {
     ]
 
     static let simplifiedChinese: [String: String] = [
-        "app.title": "文件薄荷",
+        "app.title": "文件转换器",
         "app.subtitle": "本地文件压缩与格式转换",
         "nav.settings": "设置",
         "section.tools": "工具",
